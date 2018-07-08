@@ -1,4 +1,4 @@
-package stego
+package encoder
 
 import (
 	"fmt"

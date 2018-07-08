@@ -9,6 +9,8 @@ import (
 	"image/png"
 	"log"
 	"os"
+
+	"github.com/au5ton/go-stego/encoder"
 )
 
 type Image interface {
@@ -21,6 +23,8 @@ var output = flag.String("o", "", "Output file name of PNG")
 
 func main() {
 	flag.Parse()
+
+	encoder.DoThing()
 
 	if *input == "" {
 		log.Fatal("input cannot be empty")
