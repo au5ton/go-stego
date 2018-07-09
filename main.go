@@ -9,8 +9,6 @@ import (
 	"image/png"
 	"log"
 	"os"
-
-	"github.com/au5ton/go-stego/encoder"
 )
 
 type Image interface {
@@ -23,8 +21,6 @@ var output = flag.String("o", "", "Output file name of PNG")
 
 func main() {
 	flag.Parse()
-
-	encoder.DoThing()
 
 	if *input == "" {
 		log.Fatal("input cannot be empty")
@@ -52,8 +48,8 @@ func main() {
 			r, g, b, _ := dimg.At(x, y).RGBA()
 
 			dimg.Set(x, y, color.RGBA{uint8(255 - int(r/257)), uint8(255 - int(g/257)), uint8(255 - int(b/257)), 255})
-			//fmt.Printf("%d %d %d @ %d\n", int(r/257), int(g/257), int(b/257), x)
-			//fmt.Println(r)
+			fmt.Printf("%d %d %d @ (%d,%d)\n", r/257, g/257, b/257, x/257, y/257)
+			fmt.Println(rr)
 			//i++
 		}
 	}
